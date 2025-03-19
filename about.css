@@ -1,0 +1,50 @@
+body{
+    box-sizing: border-box;
+    background-color: gainsboro;
+}
+
+.about-container{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "header1 ."
+    "header2 about-image"
+    "description about-image"
+    ". about-image"
+    "cta-button about-image"
+    ;
+}
+
+.header1{
+    grid-area: header1;
+    color: #00BFFF;
+}
+
+.header2{
+    grid-area: header2;
+    color: #00bfffcc;
+}
+
+.description{
+    grid-area: description;
+    font-size: large;
+}
+
+.cta-button{
+    grid-area: cta-button;
+    width: 50%;
+    height: 70px;
+    margin-bottom: 10px;
+    border-radius: 35px;
+    border: none;
+    background-color: #FFAA00;
+}
+
+.cta-button:hover{
+    background-color: #00BFFF;
+}
+
+.about-image{
+    grid-area: about-image;
+}
