@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Login</title>
+</head>
+<body>
+    <form class="login-form" action="login.html" method="post">
+        <h2 id="login-header">Login in with</h2>
+
+        <!--login options section-->
+        <div class="options">
+            <a class="item" href="#">
+            <img src="google.svg">
+            <span>Google</span>
+            </a>
+
+            <a class="item" href="#">
+            <img src="apple.svg">
+            <span>Apple</span>
+            </a>
+
+            <!--separator-->
+            <span class="item">or</span>
+        </div>
+
+        <!--mail text-area section-->
+        <div class="mail-box">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="user-mail" required>
+        </div>
+
+        <!--password textarea section-->
+        <div class="pass-box">
+            <label for="password">Password</label>
+            <a href="#">Forgot Password</a>
+            <input form="password" id="password" name="user-password">
+        </div>
+
+        <!--login or forgot section-->
+        <div class="final-btn">
+            <button type="submit">Login</button>
+            <span class="signup">Don't have an account? <a href="#">Sign Up</a></span>
+        </div>
+    </form>
+</body>
+</html>
