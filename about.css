@@ -1,50 +1,112 @@
-body{
+/* Base Styles */
+* {
     box-sizing: border-box;
-    background-color: gainsboro;
+    margin: 0;
+    padding: 0;
 }
 
+html {
+    font-size: 20px;
+}
+
+body {
+    background-color: gainsboro;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    width: 100%;
+    min-width: 0;
+}
+
+/*mobile default*/
 .about-container{
     display: grid;
-    gap: 10px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, auto);
+    gap: 1rem;
     grid-template-areas:
-    "header1 ."
-    "header2 about-image"
-    "description about-image"
-    ". about-image"
-    "cta-button about-image"
-    ;
+    "header1"
+    "header2"
+    "about-image"
+    "description"
+    "cta-button";
+    width: 100%;
+    min-width: 0;/*allows shrinking*/
+}
+
+.about-image {
+    grid-area: about-image;
+    width: 100%;
+    height: auto;
+    min-width: 0;
+    max-width: 100%;
 }
 
 .header1{
     grid-area: header1;
     color: #00BFFF;
-}
+    font-size: 1.2rem;
 
+}
 .header2{
     grid-area: header2;
-    color: #00bfffcc;
+    color:#00BFFF;
+    font-size: 1.2rem;
 }
-
 .description{
     grid-area: description;
-    font-size: large;
+    font-size: 0.9rem;
+    line-height: 1.5;
 }
-
 .cta-button{
     grid-area: cta-button;
-    width: 50%;
-    height: 70px;
-    margin-bottom: 10px;
-    border-radius: 35px;
-    border: none;
     background-color: #FFAA00;
-}
+    border-radius: 35px;
+    width: 95%;
+    padding: 12px;
+    border: none;
+    font-size: 0.9rem;
+    margin: 0 auto;
 
-.cta-button:hover{
+}
+.cta-button:hover {
     background-color: #00BFFF;
-}
+    color: rgb(228, 231, 22);
+  }
 
-.about-image{
-    grid-area: about-image;
-}
+  /* Enhance layout on tablets */
+  @media (min-width: 768px){
+    .about-container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+          "header1 header1"
+          "header2 about-image"
+          "description about-image"
+          "cta-button about-image";
+        text-align: left;
+        max-width: 1200px;
+        margin: auto;
+        padding: 40px;
+      }
+    
+      .cta-button {
+        width: 60%;
+      }
+    
+      .about-image {
+        border-radius: 10px;
+      }
+    
+      .header1 {
+        font-size: 1.5rem;
+      }
+    
+      .header2 {
+        font-size: 2rem;
+      }
+    
+      .description {
+        font-size: 1.1rem;
+      }
+  }
+
+
+
