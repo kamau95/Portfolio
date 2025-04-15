@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/mylogin.css" />
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="custom-login">
+      <div class="login-page">
+        <span>Login in with</span>
+        <div class="icons">
+            <a href="#" class="item">
+                <img src="./images/google.svg" />
+                <span>Google</span>
+            </a>
+            <a href="#" class="item">
+                <img src="./images/apple.svg" />
+                <span>Apple</span>
+            </a>
+        </div>
+        
+        <span>or</span>
+      </div>
+      <form action="/login" class="login-form" method="post">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required/>
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password" required/>
+        <a class="forgot" href="#">forgot password?</a>
+        <input type="submit"class="submit" value="Login" />
+      </form>
+      <p class="form-para">
+        Don't have an account? <a href="/signup" >Sign Up</a>
+      </p>
+    </div>
+  </body>
+</html>

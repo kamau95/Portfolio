@@ -1,0 +1,134 @@
+*{
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+    background-color: #f9f7f3;
+    min-height: 100%vh;
+}
+a {
+    color: #787761;
+  }
+
+html{
+    font-size: 16px;
+}
+nav{
+    background-color: #e9e5dd;
+}
+nav ul{
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    align-items: center;
+}
+nav li{
+    height: 50px;
+}
+nav a{
+    height:100%;
+    text-decoration: none;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    color:#2F4F4F
+}
+nav a:hover{
+    background-color: #f0f0f0;
+}
+nav li:first-child{
+    margin-right: auto;
+}
+.sidebar{
+    position: fixed;
+    top:0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 999;/*above everything else*/
+    background-color: rgba(255, 255, 255, 0.062);
+    backdrop-filter: blur(10px);
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.sidebar li{
+    width: 100%;
+}
+.sidebar li a img{
+    width: 28px;
+    height: 28px;
+}
+.hideMobile{
+    display: none;
+}
+.start-section{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        'linu'
+        'paragraph'
+        'button';
+    justify-content: center;
+    padding: 7px;
+    gap: 20px;
+    align-items: center;
+}
+#linu-img{
+    grid-area: linu;
+    width:100%;
+    padding-left: 0;
+}
+#paragraph{
+    grid-area: paragraph;
+    width: 100%;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgb(1, 10, 1);
+}
+#button{
+    grid-area: button;
+    width: 70%;
+    border-radius: 35px;
+    border: none;
+    background-color: #71756d;
+    padding: 10px;
+    color: white;
+}
+#button:hover{
+    background-color: #bfc2bb;
+}
+
+.more-info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 10px;
+    margin-top: 10px;
+}
+.sitemap-contact{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.contact{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.contact a{
+    text-decoration: none;
+    color: #2F4F4F;
+}
+.map{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.map a{
+    text-decoration: none;
+    color:#2F4F4F;
+}

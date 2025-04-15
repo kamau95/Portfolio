@@ -1,0 +1,111 @@
+*{
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+    background-color: hsla(295, 87%, 3%, 0.856);
+    min-height: 100%vh;
+
+}
+a {
+    color: #787761;
+  }
+.custom-login {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    border-width: 10px; 
+    border-color: blueviolet;
+    background-color: #f9f7f3;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 10px;
+  }
+  
+.login-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    width:100%;
+    padding-top: 10px;
+}
+
+.icons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+    border: 1px solid rgb(149, 149, 156);
+    padding: 5px;
+    text-decoration: none;
+    width: 45%;
+    overflow: hidden;
+    border-radius: 20px;
+}
+.item img{
+    max-width: 30px;
+    height: auto;
+}
+.item:hover {
+    background-color: #bfc2bb;
+  }
+
+.login-form{
+    display:flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 35px;
+}
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+    width: 80%;
+    box-sizing: border-box; 
+    border-radius: 15px;
+    min-height: 2.4rem;
+    margin: 0 auto;
+    border-color: #bfc2bb;
+}
+.submit{
+    background-color: #7e8b6f !important;
+    color: white;
+    border-style: none;
+}
+.form-para{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+}
+.forgot{
+    margin-right: 10%; /* lines up with input's right edge */
+    font-size: 0.9rem;
+    color: #787761;
+    text-decoration: none;
+    display: flex;
+    align-self: flex-end;
+}
+.login-form label {
+    margin-left: 10%; /* matches the left edge of the 80% width input */
+  }
+.submit:hover {
+    background-color: #bfc2bb !important;
+  }

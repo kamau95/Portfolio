@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MrKiogora</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul class="sidebar">
+                <li onClick= hideSidebar() ><a href="#"><img src="./images/cross.svg"></a></li>
+                <li ><a href="/">Home</a></li>
+                <li ><a href="/about">About</a></li>
+                <li ><a href="/">Blog</a></li>
+                <li ><a href="/login">Login</a></li>
+                <li ><a href="/">Switch mode</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">Linus Kiogora</a></li>
+                <li class="hideMobile"><a href="/">Home</a></li>
+                <li class="hideMobile"><a href="/about">About</a></li>
+                <li class="hideMobile"><a href="/">Blog</a></li>
+                <li class="hideMobile"><a href="/login">Login</a></li>
+                <li class="hideMobile"><a href="/">Switch mode</a></li>
+                <li onclick= showSidebar()><a href="#"><img src="./images/menu.svg"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="start-section">
+        <p id="paragraph">Hi, I'm a fullstack engineer. I <br>help the world by building <br> quality software.</p>
+        <button id="button">Read Blog</button>
+        <img id="linu-img" src="images/linu.jpg">
+    </section>
+    <!--the footer-->
+    <footer>
+        <div class="more-info">
+            <span>Linus Kiogora</span>
+            <span>Software engineer and web development blogger</span>
+            <div class="icons">
+                <img src="./images/x.svg">
+                <img src="./images/github.svg">
+                <img src="./images/linkedin.svg">
+            </div>
+        </div>
+
+        <div class="sitemap-contact">
+            <div class="contact" >
+                <span>Contact</span>
+                <a href="#" >Email Linus</a>
+            </div>
+            <div class="map" >
+                <span>Sitemap</span>
+                <a href="/css/index.ejs" >Home</a>
+                <a href="#" >Blog</a>
+                <a href="/css/about.ejs" >About</a>
+
+            </div>
+        </div>
+    </footer>
+    <script src="/js/main.js"></script>
+
+    
+</body>
+</html>
