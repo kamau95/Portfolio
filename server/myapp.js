@@ -3,10 +3,12 @@ import express from 'express';
 const app = express();
 
 import { addUser } from './database.js';
+import session from 'express-session';
 
 //deal with input validation
 import {validationResult} from 'express-validator';
 import {signupValidator} from './validators/useValidator.js';
+import {verifyPassword} from './validators/verify.js';
 
 //enable pass data from a form and json requests
 app.use(express.urlencoded({ extended: true }));
@@ -19,19 +21,47 @@ app.set('views', 'views');
 // Serve static files from the 'public' directory
 app.use(express.static('public'));
 
-//handle routes
+// Setup session middleware
+app.use(session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: { 
+        secure: false,
+        maxAge: 1000 * 60 * 60 //1 hr
+    }
+}));
+
+//handler routes
 app.get('/', (req, res)=>{
     res.render("index");
 });
+
+
 app.get('/about', (req, res)=>{
     res.render('about');
 })
+
+
 app.get('/login', (req, res)=>{
     res.render('mylogin');
 })
+
+
+//handle logging in
+app.post('/login', verifyPassword, async(req, res)=>{
+    res.status(201).json({
+        message: 'successful login',
+        user: req.session.email
+    });
+})
+
+
 app.get('/blog', (req, res)=>{
     res.render('index');
 })
+
+
 app.get( '/signup', (req, res)=>{
     res.render('signup');
 })

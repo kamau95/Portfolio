@@ -8,7 +8,7 @@ function hideSidebar() {
   const sidebar = document.querySelector(".sidebar");
   sidebar.style.display = "none";
 }
-
+//handle signup here
 //listen for an event and get user input send to server and return result or response to the user
 document.getElementById("signup-form").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -25,4 +25,20 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
   });
   const result =await response.json();
 });
+
+//handle login here
+document.getElementById('login-form').addEventListener("submit", async (e)=>{
+  e.preventDefault();
+  
+  const email= document.getElementById('email').value;
+  const password= document.getElementById('password').value;
+
+  //send to backend
+  const response= fetch('http://localhost:3000/login', {
+    method: 'POST',
+    headers: {"content-type": 'application/json'},
+    body: JSON.stringify({email, password}),
+  });
+  const loginResult= (await response).json();
+})
 
