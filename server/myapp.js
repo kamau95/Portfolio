@@ -8,7 +8,7 @@ import session from 'express-session';
 //deal with input validation
 import {validationResult} from 'express-validator';
 import {signupValidator} from './validators/useValidator.js';
-import {verifyPassword} from './validators/verify.js';
+import {verifyPassword, isAuthenticated} from './validators/verify.js';
 
 //enable pass data from a form and json requests
 app.use(express.urlencoded({ extended: true }));
@@ -28,7 +28,7 @@ app.use(session({
     saveUninitialized: false,
     cookie: { 
         secure: false,
-        maxAge: 1000 * 60 * 60 //1 hr
+        maxAge: 1000 * 60 //1 hr
     }
 }));
 
@@ -38,23 +38,29 @@ app.get('/', (req, res)=>{
 });
 
 
-app.get('/about', (req, res)=>{
+app.get('/about', isAuthenticated, (req, res)=>{
     res.render('about');
 })
 
 
 app.get('/login', (req, res)=>{
+    delete req.session.redirectTo;//solves the issue of race condition where saving session changes failed
     res.render('mylogin');
 })
 
 
 //handle logging in
 app.post('/login', verifyPassword, async(req, res)=>{
-    res.status(201).json({
-        message: 'successful login',
-        user: req.session.email
-    });
-})
+    const redirectPath = req.session.redirectTo || '/';
+    delete req.session.redirectTo; // clean up after redirect
+    /*req.session.save((err)=>{
+        if (err){
+            return res.status(500).json({ error: 'Failed to save session' });
+        }
+        res.redirect(redirectPath);
+    });*/
+    res.redirect(redirectPath);
+});
 
 
 app.get('/blog', (req, res)=>{
@@ -92,6 +98,7 @@ app.use( (req, res)=> {
 })
 
 //start the server
-app.listen(3000, ()=>{
-    console.log("Server running on http://localhost:3000");
+const port = process.env.DB_PORT || 3000;
+app.listen(port, ()=>{
+    console.log(`Server running on port ${port}`);
 });

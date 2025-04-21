@@ -6,12 +6,12 @@
 }
 
 body {
-    background-color: hsla(295, 87%, 3%, 0.856);
+    background-color: #7657ce;
     min-height: 100%vh;
 
 }
 a {
-    color: #787761;
+    color: #e4d90f;
   }
 .custom-login {
     display: flex;
@@ -62,7 +62,7 @@ a {
     height: auto;
 }
 .item:hover {
-    background-color: #bfc2bb;
+    background-color: rgb(196, 196, 233);
   }
 
 .login-form{
@@ -85,7 +85,7 @@ input[type="submit"] {
     border-color: #bfc2bb;
 }
 .submit{
-    background-color: #7e8b6f !important;
+    background-color: rgb(108, 108, 202);
     color: white;
     border-style: none;
 }
@@ -95,10 +95,11 @@ input[type="submit"] {
     padding-bottom: 10px;
     flex-wrap: wrap;
 }
+
 .forgot{
     margin-right: 10%; /* lines up with input's right edge */
     font-size: 0.9rem;
-    color: #787761;
+    color: #c5bd29;
     text-decoration: none;
     display: flex;
     align-self: flex-end;
@@ -107,5 +108,5 @@ input[type="submit"] {
     margin-left: 10%; /* matches the left edge of the 80% width input */
   }
 .submit:hover {
-    background-color: #bfc2bb !important;
+    background-color: rgb(196, 196, 233);
   }

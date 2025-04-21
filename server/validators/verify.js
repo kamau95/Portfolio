@@ -1,6 +1,8 @@
 import bcrypt from 'bcrypt';
 import {pool} from '../database.js'
 
+
+//check if the password is correct
 export const verifyPassword= async(req, res, next)=>{
     const {email, password}= req.body;
     if(!email || !password){
@@ -30,4 +32,15 @@ export const verifyPassword= async(req, res, next)=>{
     } catch(error){
         return res.status(500).json({err: 'internal server error'});
     }
+}
+
+//check if the user is authenticated
+export const isAuthenticated= async(req, res, next)=>{
+    if(req.session && req.session.userId){
+        return next();
+    }
+    // Save original request path before redirecting
+    req.session.redirectTo = req.originalUrl;
+
+    res.redirect('/login');
 }

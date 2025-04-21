@@ -10,7 +10,7 @@
     <header>
         <nav class="navbar">
             <ul class="sidebar">
-                <li onClick= hideSidebar() ><a href="#"><img src="./images/cross.svg"></a></li>
+                <li onClick= hideSidebar() ><a href="/"><img src="./images/cross.svg"></a></li>
                 <li ><a href="/">Home</a></li>
                 <li ><a href="/about">About</a></li>
                 <li ><a href="/">Blog</a></li>
@@ -18,13 +18,13 @@
                 <li ><a href="/">Switch mode</a></li>
             </ul>
             <ul>
-                <li><a href="#">Linus Kiogora</a></li>
+                <li><a href="/">Linus Kiogora</a></li>
                 <li class="hideMobile"><a href="/">Home</a></li>
                 <li class="hideMobile"><a href="/about">About</a></li>
                 <li class="hideMobile"><a href="/">Blog</a></li>
                 <li class="hideMobile"><a href="/login">Login</a></li>
                 <li class="hideMobile"><a href="/">Switch mode</a></li>
-                <li onclick= showSidebar()><a href="#"><img src="./images/menu.svg"></a></li>
+                <li class="menu-button" onclick= showSidebar()><a href="#"><img src="./images/menu.svg"></a></li>
             </ul>
         </nav>
     </header>
@@ -35,32 +35,29 @@
     </section>
     <!--the footer-->
     <footer>
-        <div class="more-info">
-            <span>Linus Kiogora</span>
-            <span>Software engineer and web development blogger</span>
-            <div class="icons">
-                <img src="./images/x.svg">
-                <img src="./images/github.svg">
-                <img src="./images/linkedin.svg">
+        <div class="icons">
+            <h1>Linus Kaburu</h1>
+            <p>software engineer and web development blogger</p>
+            <div>
+              <a><img src="/images/x.svg" ></a>
+              <a><img src="/images/github.svg"></a>
+              <a><img src="/images/linkedin.svg"></a>
             </div>
-        </div>
-
-        <div class="sitemap-contact">
-            <div class="contact" >
-                <span>Contact</span>
-                <a href="#" >Email Linus</a>
-            </div>
-            <div class="map" >
-                <span>Sitemap</span>
-                <a href="/css/index.ejs" >Home</a>
-                <a href="#" >Blog</a>
-                <a href="/css/about.ejs" >About</a>
-
-            </div>
-        </div>
+          </div>
+    
+          <div class="contact">
+            <h2>Contact</h2>
+            <a href="#">Email Linus</a>
+          </div>
+    
+          <div class="sitemap">
+            <h2>Sitemap</h2>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/blog">Blog</a>
+            <a href="/login">Login</a>
+          </div>
     </footer>
     <script src="/js/main.js"></script>
-
-    
 </body>
 </html>
