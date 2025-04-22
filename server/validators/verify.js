@@ -6,21 +6,34 @@ import {pool} from '../database.js'
 export const verifyPassword= async(req, res, next)=>{
     const {email, password}= req.body;
     if(!email || !password){
-        return res.status(400).json({err: 'missing password or email'})
+        //console.log('verifyPassword: Missing credentials');
+        return res.render('mylogin', {
+            err: 'Missing email or password',
+            formData: req.body
+        });
     }
 
     try{
         const [rows]= await pool.query('SELECT id, password FROM users WHERE email=?', [email]);
+        //console.log('verifyPassword: Query result:', rows);
 
         if(rows.length === 0){
-            return res.status(401).json({err: 'invalid password or email'});
+            //console.log('verifyPassword: User not found');
+            return res.render('mylogin', {
+                err: 'Invalid email or password',
+                formData: req.body
+            });
         }
 
         const user= rows[0];  
         const match= await bcrypt.compare(password, user.password);
+        //console.log('verifyPassword: Password match:', match);
 
         if(!match){
-            return res.status(401).json({err: 'invalid email or password'})
+            return res.render('mylogin', {
+                err: 'Invalid email or password',
+                formData: req.body
+            });
         }
 
         //create session
@@ -30,7 +43,10 @@ export const verifyPassword= async(req, res, next)=>{
         next();
 
     } catch(error){
-        return res.status(500).json({err: 'internal server error'});
+        return res.render('mylogin', {
+            err: 'Internal server error',
+            formData: req.body
+        });
     }
 }
 

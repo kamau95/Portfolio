@@ -11,3 +11,19 @@ package-lock.json
 .env.development
 .env.test
 .env.production
+certs/ca.pem
+
+# Temporary files
+*.swp
+*.swo
+*~
+
+# Render-specific
+.render/
+
+# Docker
+Dockerfile.dev
+docker-compose.yml
+*.dockerignore
+
+

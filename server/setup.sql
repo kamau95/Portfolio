@@ -1,5 +1,5 @@
 /*form the db*/
-CREATE DATABASE portfolio;
+CREATE DATABASE IF NOT EXISTS portfolio;
 USE portfolio;
 
 /*create table structures*/

@@ -9,25 +9,58 @@
   <body>
     <div class="signup">
       <div>
-        <span> Sign Up</span>
-        <span> or <a href="/login" class="anchor" >sign in into your account</a></span>
+        <span>Sign Up</span>
+        <span>or <a href="/login" class="anchor">sign in to your account</a></span>
       </div>
       <form action="/signup" method="post" id="signup-form">
+        <% if (message) { %>
+          <div style="color: red; margin-bottom: 10px;"><%= message %></div>
+        <% } %>
+        <% if (errors && errors.length > 0) { %>
+          <ul style="color: red; margin-bottom: 10px; list-style: none; padding: 0;">
+            <% errors.forEach(error => { %>
+              <li><%= error.msg %></li>
+            <% }) %>
+          </ul>
+        <% } %>
         <div>
           <label for="firstname">Firstname:</label>
-          <input type="text" id="firstname" name="firstname" required/>
+          <input
+            type="text"
+            id="firstname"
+            name="firstname"
+            value="<%= formData.firstname || '' %>"
+            required
+          />
         </div>
         <div>
           <label for="surname">Surname:</label>
-          <input type="text" id="surname" name="surname" required />
+          <input
+            type="text"
+            id="surname"
+            name="surname"
+            value="<%= formData.surname || '' %>"
+            required
+          />
         </div>
         <div>
           <label for="email">Email:</label>
-          <input type="text" id="email" name="email" required />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value="<%= formData.email || '' %>"
+            required
+          />
         </div>
         <div>
           <label for="password">Password:</label>
-          <input type="text" id="password" name="password" required />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+          />
         </div>
         <button type="submit">Sign Up</button>
       </form>
