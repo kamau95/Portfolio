@@ -22,7 +22,7 @@
         </div>
         <span>or</span>
       </div>
-      <form action="/login" class="login-form" method="post">
+      <form id="login-form" class="login-form" action="" method="post">
         <% if (err) { %>
           <div class="error" style="color: red; margin: 0 auto "><%= err %></div>
         <% } %>
@@ -37,5 +37,6 @@
         Don't have an account? <a href="/signup">Sign Up</a>
       </p>
     </div>
+    <script type="module" src="/js/mylogin.js"></script>
   </body>
 </html>

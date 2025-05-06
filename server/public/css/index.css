@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #7657ce;
+  background-color: #0A1D37/*#7657ce*/;
   min-height: 100%vh;
 }
 a {
@@ -26,16 +26,19 @@ nav ul {
 nav li {
   height: 50px;
 }
+nav li .me{
+  font-weight: 70;
+}
 nav a {
   height: 100%;
   text-decoration: none;
   padding: 0 30px;
   display: flex;
   align-items: center;
-  color: white;
+  color: #ffffff;
 }
 nav a:hover {
-  background-color: #967eda;
+  background-color: #00E5FF
 }
 nav li:first-child {
   margin-right: auto;
@@ -95,14 +98,14 @@ nav li:first-child {
   width: 70%;
   border-radius: 35px;
   border: none;
-  background-color: #dabc64;
+  background-color: #00E5FF;
   padding: 10px;
   color: black;
   font-size: 1rem;
   margin-bottom: 10px;
 }
 #button:hover {
-  background-color: #8e86fe;
+  background-color: #FFD700;
 }
 
 footer {
@@ -110,7 +113,7 @@ footer {
   flex-direction: column;
   align-items: center;
   padding: 2rem 0;
-  background-color: #a5a1e0; /* optional */
+  background-color:  #0A1D37;/* #a5a1e0; */
 }
 
 footer > div {
@@ -125,11 +128,11 @@ footer > div {
 footer a {
   margin: 0.3rem 0;
   text-decoration: none;
-  color: #000080;
+  color: #00E5FF;
   display: block;
 }
 footer a:hover{
-    color: #f4f4f4f4;
+    color: #FFD700;
 }
 
 .icons div {
@@ -137,6 +140,19 @@ footer a:hover{
   gap: 0.5rem;
   margin-top: 0.5rem;
 }
+.icons h1{
+  color:#ffffff;
+}
+.icons p{
+  color: hsl(0, 0%, 90%);
+}
+.contact h2{
+  color:#ffffff
+}
+.sitemap h2{
+  color:#ffffff;
+}
+
 
 /*bigger screens*/
 @media (min-width: 601px) {
@@ -148,7 +164,7 @@ footer a:hover{
   }
 
   body {
-    background-color: #7657ce;
+    background-color: #0A1D37;
   }
   .menu-button{
     display: none;
@@ -222,9 +238,10 @@ footer a:hover{
     width: 30%;
     height: 30%;
     padding: 10px;
+    background-color: #00E5FF;
   }
   footer {
-    background-color: #a5a1e0;
+    background-color: #0A1D37;
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
@@ -239,28 +256,28 @@ footer a:hover{
     display: flex;
     flex-direction: column;
   }
-  .icons h1 {
-    color: #000;
+  .icons h1, h2 {
+    color: #ffffff;
   }
   .contact {
     width: 32%;
     height: 100px;
-    color: #000;
+    color: #ffffff;
   }
   .contact a:hover{
-    color: #f4f4f4;
+    color: #FFD700;
   }
   .sitemap {
     width: 32%;
     height: 220px;
-    color: #000;
+    color: #ffffff;
   }
   .sitemap h2,
   .sitemap a {
     display: block;
   }
   .sitemap a{
-    color:#191970;
+    color:#00E5FF;
   }
   .sitemap a:hover{
     color: #FFD700;

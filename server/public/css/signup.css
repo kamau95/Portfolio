@@ -5,20 +5,23 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 body {
-    background-color: #7657ce;
+    background-color: #0A1D37;
     min-height: 100%vh;
 }
 .signup{
     width: 90%;
-    background-color: #a5a1e0;
+    background-color: #3e5f8f;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
 }
 .anchor{
-    color: #FFD700;
+    color: #00E5FF;
     text-decoration-line: none;
+}
+.anchor:hover{
+    color:#FFD700;
 }
 label, input{
     display:block;
@@ -41,11 +44,11 @@ button {
     margin-top: 2rem;
     margin-bottom: 1.5rem;
     color: white;
-    background-color: hsl(51, 87%, 53%);
+    background-color: #00E5FF;
     width: 50%;
     border-radius: 20px;
     border-style: none;
 }
 button:hover{
-    background-color: #bfc2bb;;
+    background-color: #FFD700;
 }

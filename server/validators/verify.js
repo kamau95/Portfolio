@@ -6,32 +6,32 @@ import {pool} from '../database.js'
 export const verifyPassword= async(req, res, next)=>{
     const {email, password}= req.body;
     if(!email || !password){
-        //console.log('verifyPassword: Missing credentials');
-        return res.render('mylogin', {
-            err: 'Missing email or password',
+        return res.status(400).json({
+            errors: [],
+            message: 'Missing email or password',
             formData: req.body
-        });
+        })
     }
 
     try{
-        const [rows]= await pool.query('SELECT id, password FROM users WHERE email=?', [email]);
-        //console.log('verifyPassword: Query result:', rows);
+        const emailLower = email.toLowerCase();
+        const [rows]= await pool.query('SELECT id, password FROM users WHERE email=?', [emailLower]);
 
         if(rows.length === 0){
-            //console.log('verifyPassword: User not found');
-            return res.render('mylogin', {
-                err: 'Invalid email or password',
+            return res.status(400).json({
+                errors: [],
+                message: 'something is wrong',
                 formData: req.body
             });
         }
 
         const user= rows[0];  
         const match= await bcrypt.compare(password, user.password);
-        //console.log('verifyPassword: Password match:', match);
 
         if(!match){
-            return res.render('mylogin', {
-                err: 'Invalid email or password',
+            return res.status(400).json({
+                errors: [],
+                message: 'Invalid email or password',
                 formData: req.body
             });
         }
@@ -43,20 +43,33 @@ export const verifyPassword= async(req, res, next)=>{
         next();
 
     } catch(error){
-        return res.render('mylogin', {
-            err: 'Internal server error',
-            formData: req.body
+        console.error('Verify password error:', error);
+        return res.status(500).json({
+            errors: [],
+            message: "caused by internal server error",
+            formData: req.body,
         });
     }
 }
 
 //check if the user is authenticated
-export const isAuthenticated= async(req, res, next)=>{
-    if(req.session && req.session.userId){
+export const isAuthenticated = (req, res, next) => {
+    if (req.session && req.session.userId) {
         return next();
     }
+
     // Save original request path before redirecting
     req.session.redirectTo = req.originalUrl;
 
-    res.redirect('/login');
-}
+    // Check if the request expects JSON (API request)
+    if (req.is('json') || req.get('Accept').includes('application/json')) {
+        return res.status(401).json({
+            success: false,
+            message: 'Unauthorized. Please log in.',
+            redirect: '/login'
+        });
+    }
+
+    // For non-JSON requests (e.g., browser navigating to /about), redirect to login
+    return res.redirect('/login');
+};

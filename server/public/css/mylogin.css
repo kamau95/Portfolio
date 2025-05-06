@@ -6,12 +6,12 @@
 }
 
 body {
-    background-color: #7657ce;
+    background-color: #0A1D37;
     min-height: 100%vh;
 
 }
 a {
-    color: #e4d90f;
+    color: #00E5FF;
   }
 .custom-login {
     display: flex;
@@ -85,7 +85,7 @@ input[type="submit"] {
     border-color: #bfc2bb;
 }
 .submit{
-    background-color: rgb(108, 108, 202);
+    background-color: #00E5FF;
     color: white;
     border-style: none;
 }
@@ -99,7 +99,7 @@ input[type="submit"] {
 .forgot{
     margin-right: 10%; /* lines up with input's right edge */
     font-size: 0.9rem;
-    color: #c5bd29;
+    color: #00E5FF;
     text-decoration: none;
     display: flex;
     align-self: flex-end;
@@ -108,5 +108,5 @@ input[type="submit"] {
     margin-left: 10%; /* matches the left edge of the 80% width input */
   }
 .submit:hover {
-    background-color: rgb(196, 196, 233);
+    background-color: #FFD700;
   }
