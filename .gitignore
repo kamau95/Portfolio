@@ -17,6 +17,9 @@ certs/ca.pem
 *.swp
 *.swo
 *~
+#certs
+ca.cem
+server/ca.pem
 
 # Render-specific
 .render/

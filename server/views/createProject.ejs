@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Project</title>
+    <link rel="stylesheet" href="/css/createProject.css" />
+  </head>
+  <body>
+    <section class="create-project-container">
+      <h1>Create a New Project</h1>
+      <form id="projectForm">
+        <label for="title">Project Title</label>
+        <input type="text" id="title" name="title" required />
+
+        <label for="description">Description</label>
+        <textarea id="description" name="description" required></textarea>
+
+        <label for="image">Project Image</label>
+        <input type="file" id="image" name="image" accept="image/*" required />
+
+        <button type="submit">Create Project</button>
+      </form>
+    </section>
+    <script src="/js/createProject.js"></script>
+  </body>
+</html>

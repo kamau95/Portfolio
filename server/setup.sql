@@ -11,5 +11,10 @@ CREATE TABLE if not exists users(
     password VARCHAR(255)
 );
 
-/*fill the tables*/
-INSERT INTO users(firstname, surname, email, password)  VALUES('cate', 'waruguru', 'waruguru23@gmail.com', 'cate@23')
+/*table to hold project details*/
+CREATE TABLE IF NOT EXISTS projects (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255),
+  description TEXT,
+  image_url TEXT
+);

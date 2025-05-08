@@ -3,6 +3,7 @@ import {pool, addUser } from './database.js';
 import session from 'express-session';
 import dotenv from 'dotenv';
 import MySQLSession from 'express-mysql-session';
+import {router} from './routes/projectCreation.js'//mount the router in the app
 
 //load env variables
 dotenv.config();
@@ -11,6 +12,8 @@ const decodedCa = Buffer.from(process.env.DB_SSL_CA_BASE64, 'base64').toString('
 
 //create app
 const app = express();
+app.use('/projects', router);
+
 //set environment
 app.set('env', process.env.NODE_ENV || 'development');
 //check if in production
@@ -70,11 +73,6 @@ app.use((req, res, next) => {
     console.log(`Request: ${req.method} ${req.url}`);
     next();
 });
-
-
-
-
-
 
 
 //deal with input validation
@@ -169,6 +167,7 @@ app.post('/signup', signupValidator, async (req, res)=>{
         });
     }
 })
+
 
 //404 page
 app.use( (req, res)=> {

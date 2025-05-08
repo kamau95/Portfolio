@@ -1,0 +1,91 @@
+/* Reset default styles for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body with dark navy blue background */
+  body {
+    background-color: #04272b;
+    color: #E0E0E0;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+  }
+  
+  /* Form container */
+  .create-project-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #2A3439;
+    border-radius: 8px;
+  }
+  
+  /* Form heading */
+  .create-project-container h1 {
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  /* Form labels */
+  .create-project-container label {
+    display: block;
+    color: #E0E0E0;
+    margin-bottom: 5px;
+    font-size: 1rem;
+  }
+  
+  /* Form inputs and textarea */
+  .create-project-container input,
+  .create-project-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #1C2526;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    color: #E0E0E0;
+    font-size: 1rem;
+  }
+  
+  .create-project-container input[type="file"] {
+    padding: 5px; /* Adjust padding for file input */
+    background-color: transparent; /* Blend with theme */
+  }
+  
+  .create-project-container textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  /* Submit button */
+  .create-project-container button {
+    background-color: #4A90E2;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%; /* Full-width button for consistency */
+    transition: background-color 0.3s ease;
+  }
+  
+  .create-project-container button:hover {
+    background-color: #357ABD;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 600px) {
+    .create-project-container {
+      margin: 20px;
+      padding: 15px;
+    }
+  
+    .create-project-container h1 {
+      font-size: 1.5rem;
+    }
+  }
