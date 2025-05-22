@@ -21,7 +21,10 @@
       <p class="no-projects">No projects added yet</p>
       <% } else { %> <% projects.forEach(project => { %>
       <div class="project-card">
-        <img src="<%= project.image_url %>" alt="project photo" />
+        <a href="/projects/<%= project.id %>">
+          <img src="<%= project.image_url %>" alt="project photo" />
+        </a>
+        
         <h2><%= project.title %></h2>
         <p class="description"><%= project.description %></p>
       </div>

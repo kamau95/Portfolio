@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= project.title %></title>
+    <link rel="stylesheet" href="/css/projectDetails.css" />
+</head>
+<body>
+    <section class="project-details-container">
+        <h1><%= project.title %></h1>
+        <p><%= project.description %></p>
+        <% if (project.project_link) { %>
+            <p><a href="<%= project.project_link %>" class="project-link" target="_blank">Visit Project</a></p>
+        <% } %>
+
+        <div class="image-section">
+            <img src="<%= project.image_url %>" alt="<%= project.title %>">
+            <h3>Main Image</h3>
+        </div>
+        <% if (project.image2_url && project.image2_heading) { %>
+            <div class="image-section">
+                <img src="<%= project.image2_url %>" alt="<%= project.image2_heading %>">
+                <h3><%= project.image2_heading %></h3>
+            </div>
+        <% } %>
+        <% if (project.image3_url && project.image3_heading) { %>
+            <div class="image-section">
+                <img src="<%= project.image3_url %>" alt="<%= project.image3_heading %>">
+                <h3><%= project.image3_heading %></h3>
+            </div>
+        <% } %>
+        <% if (project.image4_url && project.image4_heading) { %>
+            <div class="image-section">
+                <img src="<%= project.image4_url %>" alt="<%= project.image4_heading %>">
+                <h3><%= project.image4_heading %></h3>
+            </div>
+        <% } %>
+
+        <h2>Technologies Used</h2>
+        <p><%= project.technologies %></p>
+
+        <a href="/projects" class="back-link">Back to Projects</a>
+    </section>
+</body>
+</html>

@@ -13,16 +13,18 @@
         <span>or <a href="/login" class="anchor">sign in to your account</a></span>
       </div>
       <form action="/signup" method="post" id="signup-form">
-        <% if (message) { %>
-          <div style="color: red; margin-bottom: 10px;"><%= message %></div>
-        <% } %>
-        <% if (errors && errors.length > 0) { %>
-          <ul style="color: red; margin-bottom: 10px; list-style: none; padding: 0;">
-            <% errors.forEach(error => { %>
-              <li><%= error.msg %></li>
-            <% }) %>
-          </ul>
-        <% } %>
+        <div id="message-container" style="display: <%= message || (errors && errors.length > 0) ? 'block' : 'none' %>; background: #f8d7da; color: #721c24; padding: 10px; margin: 10px 0; border-radius: 4px;">
+          <% if (message) { %>
+            <%= message %>
+          <% } %>
+          <% if (errors && errors.length > 0) { %>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <% errors.forEach(error => { %>
+                <li><%= error.msg %></li>
+              <% }) %>
+            </ul>
+          <% } %>
+        </div>
         <div>
           <label for="firstname">Firstname:</label>
           <input

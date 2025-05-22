@@ -1,33 +1,27 @@
 import { displayError } from './shared.js';
 
-//handle signup here
-//listen for an event and get user input send to server and return result or response to the user
-document.getElementById("signup-form").addEventListener("submit", async (e) => {
+// Handle signup form submission
+document.getElementById('signup-form').addEventListener('submit', (e) => {
+  const firstname = document.getElementById('firstname').value;
+  const surname = document.getElementById('surname').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+
+  // Client-side validation
+  const errors = [];
+  if (!firstname || !surname || !email || !password) {
+    errors.push({ msg: 'All fields are required' });
+  }
+  if (password.length < 6) {
+    errors.push({ msg: 'Password must be at least 6 characters' });
+  }
+
+  if (errors.length > 0) {
     e.preventDefault();
-  
-    const firstname = document.getElementById("firstname").value;
-    const surname = document.getElementById("surname").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    //send data to the backend
-    try{
-        const response= await fetch('/signup', {
-            method: 'POST',
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({firstname, surname, email, password}),
-        })
-        const result= response.json();
-        if (result.success){
-            //handle success
-            window.location.href= result.redirect;
-        }else{
-            //handle validation or server errors
-            const errorMessage= result.message || 'signup failed';
-            displayError(errorMessage, result.errors);
-        }
-    }catch(error){
-        // Handle network or parsing errors
-        console.error("Fetch error:", error);
-        displayError("An error ocurred. Please try again.");
-    }
+    displayError('signup-form', 'Please fix the following errors:', errors);
+    return;
+  }
+
+  // Let the form submit naturally to /signup
+  // Backend will render signup.ejs for errors or redirect to /login for success
 });

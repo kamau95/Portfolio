@@ -138,9 +138,9 @@ app.get( '/signup', (req, res)=>{
 app.post('/signup', signupValidator, async (req, res)=>{
     const errors = validationResult(req);
     if(!errors.isEmpty()){
-        return res.status(400).json({
-            errors: errors.array(),
+        return res.render('signup', {
             message: null,
+            errors: errors.array(),
             formData: req.body // Preserve form inputs
         });
     }
@@ -150,23 +150,24 @@ app.post('/signup', signupValidator, async (req, res)=>{
     try{
         const result = await addUser(firstname, surname, email, password);
         if (!result.success){
-            return res.status(400).json({
-                errors: [],
+            return res.render('signup', {
                 message: result.message,
+                errors: [],
                 formData: req.body
             });
         }
-        res.json({ success: true, redirect: '/login'}); // Redirect to login on success
+
+        //success case, a user has signed up
+        res.redirect('login'); // Redirect to login on success
     } catch(err) {
         console.error('Signup error:', err);
-        res.status(500).json({
-            errors: [],
+        res.render('signup', {
             message: 'Something went wrong on the server',
-            formData: req.body
-
+            errors: [],
+            formData: req.body,
         });
     }
-})
+});
 
 
 //404 page

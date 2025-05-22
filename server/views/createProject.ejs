@@ -1,27 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create Project</title>
     <link rel="stylesheet" href="/css/createProject.css" />
-  </head>
-  <body>
+    <style>
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .loading-spinner::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border: 3px solid #007bff;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
     <section class="create-project-container">
-      <h1>Create a New Project</h1>
-      <form id="projectForm">
-        <label for="title">Project Title</label>
-        <input type="text" id="title" name="title" required />
+        <h1>Create a New Project</h1>
+        <div id="error-message" style="display: none; background: #f8d7da; color: #721c24; padding: 10px; margin: 10px 0; border-radius: 4px;"></div>
+        <div id="success-message" style="display: none; background: #d4edda; color: #155724; padding: 10px; margin: 10px 0; border-radius: 4px;"></div>
+        <form id="projectForm" enctype="multipart/form-data">
+            <label for="title">Project Title</label>
+            <input type="text" id="title" name="title" required />
 
-        <label for="description">Description</label>
-        <textarea id="description" name="description" required></textarea>
+            <label for="description">Description</label>
+            <textarea id="description" name="description" required></textarea>
 
-        <label for="image">Project Image</label>
-        <input type="file" id="image" name="image" accept="image/*" required />
+            <label for="project_link">Project Link</label>
+            <input type="url" id="project_link" name="project_link" placeholder="https://example.com" />
 
-        <button type="submit">Create Project</button>
-      </form>
+            <label for="image">Main Project Image</label>
+            <input type="file" id="image" name="image" accept="image/*" required />
+
+            <label for="image2">Additional Image 1</label>
+            <input type="file" id="image2" name="image2" accept="image/*" />
+            <label for="image2_heading">Image 1 Heading</label>
+            <input type="text" id="image2_heading" name="image2_heading" />
+
+            <label for="image3">Additional Image 2</label>
+            <input type="file" id="image3" name="image3" accept="image/*" />
+            <label for="image3_heading">Image 2 Heading</label>
+            <input type="text" id="image3_heading" name="image3_heading" />
+
+            <label for="image4">Additional Image 3</label>
+            <input type="file" id="image4" name="image4" accept="image/*" />
+            <label for="image4_heading">Image 3 Heading</label>
+            <input type="text" id="image4_heading" name="image4_heading" />
+
+            <label for="technologies">Technologies Used</label>
+            <textarea id="technologies" name="technologies" placeholder="e.g., HTML, CSS, JavaScript, React" required></textarea>
+
+            <button type="submit" id="submitButton">Create Project</button>
+            <div class="loading-spinner" id="loadingSpinner"></div>
+        </form>
     </section>
     <script src="/js/createProject.js"></script>
-  </body>
+</body>
 </html>

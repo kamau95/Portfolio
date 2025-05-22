@@ -1,18 +1,26 @@
 export function displayError(formId, message, errors = []) {
-    const errorContainer = document.getElementById("error-container") || document.createElement("div");
-    errorContainer.id = "error-container";
-    errorContainer.style.color = "red";
-    errorContainer.innerHTML = message;
+  let messageContainer = document.getElementById('message-container');
+  if (!messageContainer) {
+    messageContainer = document.createElement('div');
+    messageContainer.id = 'message-container';
+    messageContainer.style.background = '#f8d7da';
+    messageContainer.style.color = '#721c24';
+    messageContainer.style.padding = '10px';
+    messageContainer.style.margin = '10px 0';
+    messageContainer.style.borderRadius = '4px';
+  }
 
-    if (errors.length > 0) {
-        const errorList = errors.map(err => `<li>${err.msg}</li>`).join("");
-        errorContainer.innerHTML += `<ul>${errorList}</ul>`;
-    }
+  messageContainer.innerHTML = message || '';
 
-    const form = document.getElementById(formId);
-    if (form) {
-        form.prepend(errorContainer);
-    } else {
-        console.error(`Form with ID ${formId} not found`);
-    }
+  if (errors.length > 0) {
+    const errorList = errors.map(err => `<li>${err.msg}</li>`).join('');
+    messageContainer.innerHTML += `<ul style="list-style: none; padding: 0; margin: 0;">${errorList}</ul>`;
+  }
+
+  const form = document.getElementById(formId);
+  if (form) {
+    form.prepend(messageContainer);
+  } else {
+    console.error(`Form with ID ${formId} not found`);
+  }
 }
